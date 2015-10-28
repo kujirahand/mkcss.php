@@ -1,0 +1,7 @@
+$main_color = #ff0000
+$sub_color = #ff00ff
+$back_color = black
+
+#head:
+  background-color: $back_color
+  color: $main_color

@@ -1,0 +1,7 @@
+// mixin sample
+@mixin set_basic($front, $back):
+  background-color: $front
+  color: $back
+
+body:
+  @include set_basic(black, white)

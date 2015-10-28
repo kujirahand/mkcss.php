@@ -1,0 +1,14 @@
+// simple example
+body:
+  background-color: black
+  color: white
+
+#hoge:
+  background-color: white
+  color: red
+
+#fuga:
+  background-color: blue
+  color: white
+
+
