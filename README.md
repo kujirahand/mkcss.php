@@ -3,15 +3,19 @@
 CSS file generator(altCSS).
 It likes YAML. Easy way to generate CSS.
 
-# How to use?
+## Required
 
-If you use command, then execute command.
+PHP 5.3 (tested by PHP 5.5)
+
+# How to use
+
+If you use command, then execute command:
 
 ```
 $ php mkcss.php test.mkcss
 ```
 
-If you use browser, then you access by browser.
+If you use browser:
 
 ```
 http://example.com/mkcss.php?f=test&nocache=1
@@ -46,7 +50,7 @@ body { background-color: black; color: white;  }
 #fuga { background-color: blue; color: white;  }
 ```
 
-## Can use variable
+## Variable
 
 source:
 
@@ -65,7 +69,7 @@ generated:
 #head { background-color: black; color: #ff0000;  }
 ```
 
-## Can calc parameters
+## Calc parameters
 
 source:
 
@@ -80,7 +84,10 @@ generated:
 body { font-size: 11px; }
 ```
 
-## Can use mixin
+## Mixin
+
+- define: @mixin name(v1:def, v2:def, ...)
+- include: @include name(v1, v2, ...)
 
 source:
 
@@ -98,4 +105,29 @@ generated:
 
 ```
 body { background-color: black; color: white;  }
+```
+
+## Nested style
+
+source:
+
+```
+table:
+  border: 1px solid black
+
+  th:
+    font-size: 14px
+    font-weight: bold
+
+  td:
+    font-size: 12px
+    background-color: white
+```
+
+generated:
+
+```
+table { border: 1px solid black; }
+table th { font-size: 14px; font-weight: bold; }
+table td { font-size: 12px; background-color: white; }
 ```

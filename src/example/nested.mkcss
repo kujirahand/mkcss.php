@@ -1,0 +1,9 @@
+table:
+  border: 1px solid black
+
+  th:
+    font-size: 14px
+    font-weight: bold
+  td:
+    font-size: 12px
+
