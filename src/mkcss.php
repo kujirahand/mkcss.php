@@ -1,4 +1,12 @@
 <?php
+/**
+ * mkcss.php --- altCSS : CSS generator
+ *
+ * [License] The MIT License (MIT)
+ * [Url] https://github.com/kujirahand/mkcss.php
+ * [Author] http://kujirahand.com
+ */
+
 // output contents type
 header("Content-Type: text/css; charset=UTF-8");
 
@@ -297,8 +305,9 @@ class mkcss_token {
   public $value;
   public $type;
   //
-  public $children = array();
   public $parent = NULL;
+  public $left_t = NULL;
+  public $right_t = NULL;
 
   public function __construct($priority, $type, $value) {
     $this->priority = $priority;
@@ -364,20 +373,20 @@ class mkcss_calc {
     $next_type = $this->token_type0();
     if ($next_type == "op") {
       $op = array_shift($this->tokens);
-      $op->children[0] = $va;
+      $op->left_t = $va;
       $vb = $this->parse_exp();
       $top = $op;
       if ($vb->type == "op") {
         if ($vb->priority > $op->priority) {
-          $top->children[1] = $vb;
+          $top->right_t = $vb;
         } else {
           $vb_l = $vb->children[0];
-          $vb->children[0] = $op;
-          $op->children[1] = $vb_l;
+          $vb->left_t = $op;
+          $op->right_t = $vb_l;
           $top = $vb;
         }
       } else {
-        $top->children[1] = $vb;
+        $top->right_t = $vb;
       }
       return $top;
     }
@@ -434,8 +443,8 @@ class mkcss_calc {
       case "str":
         return $node->value;
       case "op":
-        $a = $this->_run($node->children[0]);
-        $b = $this->_run($node->children[1]);
+        $a = $this->_run($node->left_t);
+        $b = $this->_run($node->right_t);
         $unit = "";
         if (preg_match('#([a-z]+)$#', $b, $m)) {
           $unit = $m[1];

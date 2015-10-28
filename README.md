@@ -9,7 +9,7 @@ PHP 5.3 (tested by PHP 5.5)
 
 # How to use
 
-If you use command, then execute command:
+If you use command:
 
 ```
 $ php mkcss.php test.mkcss
@@ -18,7 +18,16 @@ $ php mkcss.php test.mkcss
 If you use browser:
 
 ```
-http://example.com/mkcss.php?f=test&nocache=1
+http://example.com/mkcss.php?f=test
+```
+
+HTML:
+
+```
+<head>
+<link rel="stylesheet" type="text/css"
+      href="mkcss.php?f=test">
+</head>
 ```
 
 # examples
@@ -86,25 +95,28 @@ body { font-size: 11px; }
 
 ## Mixin
 
-- define: @mixin name(v1:def, v2:def, ...)
+- define: @mixin name(v1:default1, v2:default2, ...)
 - include: @include name(v1, v2, ...)
 
 source:
 
 ```
 // mixin sample
-@mixin set_basic($front, $back):
+@mixin set_basic($front:white, $back:black):
   background-color: $front
   color: $back
 
 body:
   @include set_basic(black, white)
+#hoge:
+  @include set_basic()
 ```
 
 generated:
 
 ```
 body { background-color: black; color: white;  }
+#hoge { background-color: white; color: black;  }
 ```
 
 ## Nested style
