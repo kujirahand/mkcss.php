@@ -14,7 +14,7 @@ if (isset($argv)) { // command line
   $mkfile = $argv[1];
   $nocache = TRUE;
 } else {
-  $f = isset($_GET["f"]) ? $_GET["f"] : "";
+  $f = isset($_GET["f"]) ? $_GET["f"] : "test";
   $mkfile = dirname(__FILE__).'/'.$f.'.mkcss';
   if (!file_exists($mkfile)) {
     $mkfile = dirname(__FILE__).'/'.$f;
