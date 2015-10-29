@@ -1,7 +1,8 @@
 # mkcss.php
 
-CSS file generator(altCSS).
-It likes YAML. Easy way to generate CSS.
+CSS generator (altCSS / CSS Preprocessor / CSS Compiler).
+
+Easy way to generate CSS. The format is tab indent data, like YAML.
 
 ## Required
 
