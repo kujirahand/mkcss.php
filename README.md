@@ -10,13 +10,13 @@ PHP 5.3 (tested by PHP 5.5)
 
 # How to use
 
-If you use command:
+When you use command line:
 
 ```
 $ php mkcss.php test.mkcss
 ```
 
-If you use browser:
+When you use browser:
 
 ```
 http://example.com/mkcss.php?f=test
@@ -26,8 +26,10 @@ HTML:
 
 ```
 <head>
-<link rel="stylesheet" type="text/css"
-      href="mkcss.php?f=test">
+...
+  <link rel="stylesheet" type="text/css"
+       href="mkcss.php?f=test">
+...
 </head>
 ```
 
