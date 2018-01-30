@@ -478,11 +478,12 @@ class mkcss_calc {
       case "str":
         return $node->value;
       case "op":
-        $a = $this->_run($node->left_t);
-        $b = $this->_run($node->right_t);
+        $a = ($this->_run($node->left_t));
+        $b = ($this->_run($node->right_t));
         $unit = "";
         if (preg_match('#([a-z]+)$#', $b, $m)) {
           $unit = $m[1];
+          $b = floatval($b);
         }
         $c = 0;
         switch ($node->value) {
