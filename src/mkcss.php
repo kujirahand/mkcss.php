@@ -602,7 +602,7 @@ class mkcss_calc {
       $v = substr($v, 1);
       return new mkcss_token(2, 'op', $c);
     }
-    if ($c == '*' || $c == '/' || $c == '%') {
+    if ($c == '*' || $c == '/') {
       $v = substr($v, 1);
       return new mkcss_token(3, 'op', $c);
     }
