@@ -371,7 +371,7 @@ class mkcss_calc {
       return $v;
     }
     // simple numeric value (ex)4px
-    if (preg_match('#^[0-9]+[a-zA-Z]*$#', $v)) {
+    if (preg_match('#^[0-9]+[a-zA-Z\%]*$#', $v)) {
       return $v;
     }
 
